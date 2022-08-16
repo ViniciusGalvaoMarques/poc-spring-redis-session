@@ -6,22 +6,21 @@ spec:
   type: ClusterIP
   ports:
     - port: 80
-      targetPort: 8000
+      targetPort: 8080
   selector:
     application: vgmlabs-spring-redis-app
 
 ---
-
+#CHANGE HOST IN LINE 23
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: vgmlabs-spring-redis-app-ingress
   annotations:
     allow.http: "true"
-
 spec:
   rules:
-    - host: app-spring-redis.rancher.vgmlabs.com
+    - host: app-spring-redis.<sub-dns>.<dns>
       http:
         paths:
           - path: /

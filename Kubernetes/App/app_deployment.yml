@@ -23,4 +23,4 @@ spec:
               containerPort: 8080
           envFrom:
             - configMapRef:
-              name: vgmlabs-spring-redis-app-configmap
+                name: vgmlabs-spring-redis-app-configmap
