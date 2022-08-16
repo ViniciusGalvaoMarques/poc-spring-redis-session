@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: vgmlabs-redis-deployment
+  labels:
+    application: vgmlabs-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: vgmlabs-redis
+  template:
+    metadata:
+      labels:
+        application: vgmlabs-redis
+    spec:
+      containers:
+        - name: vgmlabs-redis-container
+          image: redis
+          ports:
+            - containerPort: 6379

@@ -1,0 +1,26 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: vgmlabs-spring-redis-app-deployment
+  labels:
+    allow.http: "true"
+    application: vgmlabs-spring-redis-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: vgmlabs-spring-redis-app
+  template:
+    metadata:
+      labels:
+        application: vgmlabs-spring-redis-app
+    spec:
+      containers:
+        - name: vgmlabs-spring-redis-app-container
+          image: vgalvaom/poc-spring-redis-session:2.0
+          ports:
+            - name: http
+              containerPort: 8080
+          envFrom:
+            - configMapRef:
+              name: vgmlabs-spring-redis-app-configmap

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vgmlabs-spring-redis-app-configmap
+data:
+  REDIS_HOSTNAME: vgmlabs-redis-service
+  REDIS_PASSWORD:
