@@ -6,7 +6,7 @@ metadata:
     allow.http: "true"
     application: vgmlabs-spring-redis-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       application: vgmlabs-spring-redis-app
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: vgmlabs-spring-redis-app-container
-          image: vgalvaom/poc-spring-redis-session:2.0
+          image: vgalvaom/poc-spring-redis-session:latest
           ports:
             - name: http
               containerPort: 8080
